@@ -24,4 +24,5 @@ urlpatterns = [
     path('orm/',views.orm),
     path('userlist',views.user_list),
     path('useradd',views.user_add),
+    path('userdelete/',views.info_delete),
 ]

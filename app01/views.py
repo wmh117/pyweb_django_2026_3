@@ -1,4 +1,4 @@
-from django.shortcuts import render,HttpResponse
+from django.shortcuts import render, HttpResponse, redirect
 from app01.models import Department, UserInfo
 def index(request):
     return HttpResponse("hello你好bro")
@@ -9,11 +9,15 @@ def user_add(request):
         return render(request,"user_add.html")
     else:
         user = request.POST.get("user")
-        pwd = request.POST.get("password")
+        pwd = request.POST.get("pwd")
         age = request.POST.get("age")
         UserInfo.objects.create(name=user,password=pwd,age=age)
-        return HttpResponse("添加成功")
+        return redirect("/userlist")
 
+def info_delete(request):
+    nid = request.GET.get('nid')
+    UserInfo.objects.filter(id = nid).delete()
+    return redirect('/userlist')
 
 
 def orm(request):
