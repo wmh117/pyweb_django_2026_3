@@ -5,6 +5,27 @@
     <title>Title</title>
 </head>
 <body>
-<h1>用户列表</h1>
+<h1>info_list</h1>
+<table border="1">
+    <thead>
+    <tr>
+        <th>id</th>
+        <th>name</th>
+        <th>pwd</th>
+        <th>age</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for obj in data %}
+         <tr>
+            <td>{{obj.id}}</td>
+            <td>{{obj.name}}</td>
+            <td>{{obj.password}}</td>
+            <td>{{obj.age}}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
 </body>
 </html>
